@@ -9,7 +9,6 @@ Código-fonte de implementação de árvore binária de busca (ABB). No momento,
 ├── .devcontainer/
 │   ├── Dockerfile
 │   └── devcontainer.json
-├── Makefile
 ├── README.md
 └── src/
     ├── bst_iter/
@@ -35,42 +34,43 @@ Código-fonte de implementação de árvore binária de busca (ABB). No momento,
     │       ├── element.c
     │       ├── element.h
     │       └── main.c
-    └── tests/
-        ├── Makefile
-        ├── insert_test.c
-        ├── main.c
-        ├── search_test.c
-        └── traversal_test.c
 ```
 
 ## Compilacao
 
-Use clang ou gcc no diretorio do projeto:
+Ha dois subprojetos com Makefile proprio:
 
 ```bash
-mkdir -p build
-clang -Wall -Wextra -pedantic -std=c11 -o build/search_test src/search_test.c
+# Recursivo
+cd src/bst_recur
+make main
+
+# Iterativo
+cd ../bst_iter
+make main
 ```
 
 ## Execucao
 
 ```bash
-./build/search_test
+# Recursivo
+./src/bst_recur/build/main
+
+# Iterativo
+./src/bst_iter/build/main
 ```
 
 ## Saida esperada
 
-O programa imprime o resultado das buscas para chaves que existem e nao existem na arvore, separando:
+Cada executavel imprime a arvore e/ou percursos de acordo com o `main.c` de cada subprojeto.
 
-- Testing recursive search:
-- Testing iterative search:
-
-As linhas exibem found ou not found para cada chave testada.
+Os formatos de saida podem variar entre `bst_recur` e `bst_iter`.
 
 ## Como usar
 
-- Edite src/search_test.c para alterar os casos de teste.
-- Recompile apos cada mudanca.
+- Edite `src/bst_recur/src/main.c` para testar a versao recursiva.
+- Edite `src/bst_iter/src/main.c` para testar a versao iterativa.
+- Recompile no respectivo diretorio apos cada mudanca.
 
 ## Ambiente de desenvolvimento (opcional)
 
@@ -94,7 +94,7 @@ docker run --rm -it -v "$PWD":/work -w /work aed-i-c
 Dentro do container:
 
 ```bash
-mkdir -p build
-clang -Wall -Wextra -pedantic -std=c11 -o build/search_test src/search_test.c
-./build/search_test
+cd src/bst_recur
+make main
+./build/main
 ```
