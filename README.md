@@ -1,20 +1,47 @@
 # Aula: ABB
 
-Código-fonte de implementação de árvore binária de busca (ABB). No momento, temos apenas definição de nó, construção manual de árvore e operações de busca (recursiva e iterativa). 
+Código-fonte de implementação de árvore binária de busca (ABB). No momento, temos apenas definição do TAD e as operações de busca (recursiva e iterativa), inserção (recursiva) e percursos com impressão (recursiva e iterativa). As outras estão pendentes (próxima aula).
 
 ## Estrutura
 
 ```
 .
+├── .devcontainer/
+│   ├── Dockerfile
+│   └── devcontainer.json
+├── Makefile
 ├── README.md
-├── src/
-│   └── search_test.c
-└── .devcontainer/
-    ├── Dockerfile
-    └── devcontainer.json
+└── src/
+    ├── bst_iter/
+    │   ├── Makefile
+    │   ├── README.md
+    │   └── src/
+    │       ├── bst.c
+    │       ├── bst.h
+    │       ├── bst_element.c
+    │       ├── bst_element.h
+    │       ├── bst_node.c
+    │       ├── bst_node.h
+    │       ├── main.c
+    │       ├── stack.c
+    │       ├── stack.h
+    │       ├── stack_element.c
+    │       └── stack_element.h
+    ├── bst_recur/
+    │   ├── Makefile
+    │   └── src/
+    │       ├── bst.c
+    │       ├── bst.h
+    │       ├── element.c
+    │       ├── element.h
+    │       └── main.c
+    └── tests/
+        ├── Makefile
+        ├── insert_test.c
+        ├── main.c
+        ├── search_test.c
+        └── traversal_test.c
 ```
-
-O diretorio build/ e criado apos a compilacao.
 
 ## Compilacao
 
