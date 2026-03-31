@@ -1,6 +1,18 @@
 # Aula: ABB
 
-Código-fonte de implementação de árvore binária de busca (ABB). No momento, temos apenas definição do TAD e as operações de busca (recursiva e iterativa), inserção (recursiva) e percursos com impressão (recursiva e iterativa). As outras estão pendentes (próxima aula).
+Codigo-fonte de implementacao de arvore binaria de busca (ABB), com duas versoes:
+
+- `bst_recur`: implementacao recursiva
+- `bst_iter`: implementacao iterativa
+
+No estado atual, ambas as versoes incluem:
+
+- criacao e destruicao da arvore
+- busca
+- insercao
+- remocao
+- percursos com impressao (`in-order`, `pre-order`, `post-order`)
+- impressao estrutural da arvore (`bst_print_tree`)
 
 ## Estrutura
 

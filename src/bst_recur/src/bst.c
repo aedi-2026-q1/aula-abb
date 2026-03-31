@@ -86,6 +86,51 @@ void bst_insert(BST* bst, Element key) {
     bst->root = bst_insert_recur(bst->root, key);
 }
 
+Node* bst_successor(Node* node) {
+    if (node == NULL) {
+        return NULL;
+    }
+    if (node->left == NULL) {
+        return node;
+    }
+
+    return bst_successor(node->left);
+}
+
+Node* bst_remove_recur(Node* node, Element key) {
+    if (node == NULL) {
+        return node;
+    }
+    if (key < node->key) {
+        node->left = bst_remove_recur(node->left, key);
+    } else if (key > node->key) {
+        node->right = bst_remove_recur(node->right, key);
+    } else {
+        if (node->left == NULL) {
+            Node* trash = node;
+
+            node = node->right;
+            free(trash);
+        } else if (node->right == NULL) {
+            Node* trash = node;
+
+            node = node->left;
+            free(trash);
+        } else {
+            Node* temp = bst_successor(node->right);
+
+            node->key = temp->key;
+            node->right = bst_remove_recur(node->right, temp->key);
+        }
+    }
+
+    return node;
+}
+
+void bst_remove(BST* bst, Element key) {
+    bst->root = bst_remove_recur(bst->root, key);
+}
+
 void bst_print_in_order_recur(Node* node) {
     if (node == NULL) {
         return;
@@ -147,5 +192,3 @@ void bst_print_tree_recur(Node* node, int level) {
 void bst_print_tree(BST* bst) {
   bst_print_tree_recur(bst->root, 0);
 }
-
-// TODO: Implement bst_remove

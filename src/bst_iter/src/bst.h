@@ -15,5 +15,6 @@ void bst_remove(BST* bst, BSTElement key);
 void bst_print_in_order(BST* bst);
 void bst_print_pre_order(BST* bst);
 void bst_print_post_order(BST* bst);
+void bst_print_tree(BST* bst);
 
 #endif

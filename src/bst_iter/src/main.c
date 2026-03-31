@@ -1,24 +1,32 @@
-#include <stdio.h>
-
 #include "bst.h"
 
-// redefine a node here just for testing purposes
+#include <stdio.h>
 
-
-
-
-int main() {
+int main(void) {
     BST* bst = bst_create();
 
-    bst_insert(bst, 5);
-    bst_insert(bst, 3);
-    bst_insert(bst, 7);
-    bst_insert(bst, 2);
-    bst_insert(bst, 4);
-    bst_insert(bst, 6);
-    bst_insert(bst, 8);
+    int values[] = {5, 3, 7, 2, 4, 6, 8};
+    // int values[] = {1, 2, 3, 4, 5, 6, 7, 8}; 
+
+    for (int i = 0; i < 7; i++) {
+        bst_insert(bst, values[i]);
+    }
 
     bst_print_in_order(bst);
+    printf("\n");
+    bst_print_tree(bst);
+
+    // remove zero-child node
+    bst_remove(bst, 2);
+    bst_print_tree(bst);
+
+    // remove one-child node
+    bst_remove(bst, 3);
+    bst_print_tree(bst);
+
+    // remove two-child node
+    bst_remove(bst, 5);
+    bst_print_tree(bst);
 
     bst_destroy(bst);
 
